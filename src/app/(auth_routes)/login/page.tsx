@@ -64,7 +64,7 @@ const LogIn = () => {
       }
       setTimeout(() => {
         setIsLoading(false);
-        redirect("/admin");
+        redirect("/dashboard/overview");
       }, 500);
     } catch (error) {
       console.error("Login error:", error);
@@ -73,8 +73,8 @@ const LogIn = () => {
   };
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center h-100 w-100 rounded-md shadow-lg bg-primary">
-        <h1 className="text-4xl font-bold mb-8">LOG IN</h1>
+      <div className="flex flex-col items-center justify-center h-100 w-100 rounded-md shadow-lg bg-white">
+        <h1 className="text-2xl font-bold mb-8">LOG IN</h1>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col w-xs mb-2">
             <label htmlFor="email">Email</label>

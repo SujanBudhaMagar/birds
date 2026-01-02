@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer components {
+  .globalContainer {
+    @apply max-w-340 mx-auto px-5 md:px-8 lg:px-8 py-4;
+  }
+  .sidebar-header {
+    @apply text-sm font-medium text-primary;
+  }
+  .sidebar-subheading {
+    @apply text-xs text-secondary;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .cell {
+    @apply text-left px-4 py-4;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-primary: #000000;
+  --color-secondary: #6b7280;
+}
+
+.test {
+  border: 1px solid red;
+}
+
+.test {
+}
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.03), inset 0 0 0 1000px white !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05), inset 0 0 0 1000px white !important;
+  border: border !important;
+  /* outline: none !important; */
+  transition: background-color 5000s ease-in-out;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

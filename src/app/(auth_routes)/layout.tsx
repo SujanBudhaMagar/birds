@@ -12,7 +12,7 @@ export default async function AuthLayout({
   console.log(session);
 
   if (session) {
-    redirect("/admin");
+    redirect("/dashboard/overview");
   }
   return <>{children}</>;
 }

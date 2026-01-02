@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
           id: "1",
           fullname: "Demo User",
           email: "admin@example.com",
-          roles: "moderator",
+          role: "admin",
           tokens: {
             accessToken: "mock-access-token",
             refreshToken: "mock-refresh-token",
@@ -36,7 +36,7 @@ export const authOptions: NextAuthOptions = {
             id: mockUser.id,
             name: mockUser.fullname,
             email: mockUser.email,
-            role: mockUser.roles,
+            role: mockUser.role,
             tokens: mockUser.tokens,
             accessTokenExpires: Date.now() + 15 * 60 * 1000, // 15 min
           };
