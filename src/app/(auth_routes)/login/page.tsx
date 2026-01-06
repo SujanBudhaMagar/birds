@@ -1,7 +1,7 @@
 "use client";
 import { LogInProps } from "@/types";
 import { signIn } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const LogIn = () => {
@@ -12,6 +12,9 @@ const LogIn = () => {
   const [errors, setErrors] = useState<Partial<LogInProps>>({});
   // const [loginError, setLoginError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  // if (!role) return null;
 
   const validateForm = () => {
     const validationErrors: Partial<LogInProps> = {};
@@ -53,19 +56,16 @@ const LogIn = () => {
     setIsLoading(true);
     try {
       const res = await signIn("credentials", {
-        redirect: false,
-        ...formData,
+        email: formData.email,
+        password: formData.password,
+        callbackUrl: "/dashboard/overview",
       });
-      console.log(res);
-
-      if (!res?.ok) {
-        setIsLoading(false);
-        return;
+      if (res?.ok) {
+        router.push("/dashboard/overview");
+        // router.refresh();
       }
-      setTimeout(() => {
-        setIsLoading(false);
-        redirect("/dashboard/overview");
-      }, 500);
+
+      console.log(res);
     } catch (error) {
       console.error("Login error:", error);
       setIsLoading(false);

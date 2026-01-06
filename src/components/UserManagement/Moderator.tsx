@@ -68,7 +68,7 @@ const Moderator = () => {
         {loadModeratorData.length > 0 ? (
           <table className="w-full table-fixed border-collapse">
             <thead>
-              <tr className="text-xs border-b border-b-secondary">
+              <tr className="table-row">
                 <th className="cell w-[17.5%]">Username</th>
                 <th className="cell w-[17.5%]">Full Name</th>
                 <th className="cell w-[25%]">Email</th>
@@ -78,13 +78,13 @@ const Moderator = () => {
             </thead>
             <tbody>
               {loadModeratorData.map((moderator) => (
-                <tr key={moderator.userId} className="text-xs border-b">
+                <tr key={moderator.userId} className="table-data">
                   <td className="cell">{moderator.userName}</td>
                   <td className="cell">{moderator.fullName}</td>
                   <td className="cell">{moderator.email}</td>
                   <td className="cell">
                     <span
-                      className={`px-2 py-1 text-white text-[8px] rounded-sm ${
+                      className={`px-2 py-1 text-white text-sm rounded-sm ${
                         moderator.status == "active"
                           ? "bg-green-400"
                           : "bg-red-500"
@@ -94,7 +94,7 @@ const Moderator = () => {
                     </span>
                   </td>
                   <td className="cell">
-                    <div className="flex gap-1 text-secondary text-sm">
+                    <div className="flex gap-1 text-secondary text-base">
                       <FaEdit
                         className="text-blue-300"
                         onClick={() => {

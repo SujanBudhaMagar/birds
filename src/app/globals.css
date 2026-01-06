@@ -1,21 +1,35 @@
 @import "tailwindcss";
 
-:root {
-}
+/* :root {
+} */
 
 @layer components {
   .globalContainer {
     @apply max-w-340 mx-auto px-5 md:px-8 lg:px-8 py-4;
   }
   .sidebar-header {
-    @apply text-sm font-medium text-primary;
+    @apply text-lg font-medium text-primary;
   }
   .sidebar-subheading {
-    @apply text-xs text-secondary;
+    @apply text-sm text-secondary;
   }
-
+  .sidebar-link {
+    @apply flex items-center gap-3 text-base px-3 py-2 rounded-md duration-200;
+  }
   .cell {
     @apply text-left px-4 py-4;
+  }
+  .modal-title {
+    @apply text-xl font-bold;
+  }
+  .modal-des {
+    @apply text-base text-secondary;
+  }
+  .table-row {
+    @apply text-base border-b border-b-secondary;
+  }
+  .table-data {
+    @apply text-base;
   }
 }
 
@@ -28,8 +42,6 @@
   border: 1px solid red;
 }
 
-.test {
-}
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
@@ -41,8 +53,38 @@ input:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out;
 }
 
+select {
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+select:focus {
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(170, 170, 170, 0.5);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(170, 170, 170, 0.5);
+  cursor: pointer;
 }
