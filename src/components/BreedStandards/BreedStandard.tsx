@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import Header from "../common/Header";
 import { BreedProps } from "@/types";
@@ -160,7 +161,7 @@ const BreedStandard = () => {
         {loadBreed.length > 0 ? (
           <table className="w-full table-fixed border-collapse">
             <thead>
-              <tr className="text-xs border-b border-b-secondary">
+              <tr className="table-row">
                 <th className="cell w-[20%]">Breed Name</th>
                 <th className="cell w-[20%]">Fertility %</th>
                 <th className="cell w-[20%]">Hatchability %</th>
@@ -171,14 +172,14 @@ const BreedStandard = () => {
             </thead>
             <tbody>
               {loadBreed.map((breed) => (
-                <tr key={breed.breedID} className="text-xs">
+                <tr key={breed.breedID} className="table-data">
                   <td className="cell capitalize">{breed.breedName}</td>
                   <td className="cell">{breed.fertility}</td>
                   <td className="cell">{breed.hatchability}</td>
                   <td className="cell">{breed.mortality}</td>
                   <td className="cell">{breed.healthyChicks}</td>
                   <td className="cell">
-                    <div className="flex text-xs gap-1 ">
+                    <div className="flex text-base gap-1 ">
                       <FaEdit
                         className="text-blue-500"
                         onClick={() => {
@@ -204,15 +205,15 @@ const BreedStandard = () => {
       {addBreed && (
         <section className="fixed inset-0 bg-black/50 z-30">
           <div className="flex items-center justify-center h-screen ">
-            <div className="bg-white max-w-md w-full rounded-lg px-8 py-6 flex flex-col gap-2">
+            <div className="bg-white max-w-xl w-full rounded-lg px-8 py-6 flex flex-col gap-2">
               <div className="flex justify-between">
                 <div className="flex flex-col gap-1">
-                  <h1 className="text-base font-bold">
+                  <h1 className="modal-title">
                     {editingBreed
                       ? "Update Breed Standard"
                       : "Create New Breed Standard"}
                   </h1>
-                  <h2 className="text-xs text-secondary">
+                  <h2 className="modal-des">
                     {editingBreed
                       ? "Update performance benchmarks for this breed"
                       : "Enter performance benchmarks for this breed"}
@@ -223,7 +224,7 @@ const BreedStandard = () => {
               <hr className="h-px w-full" />
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-3 py-2"
+                className="flex flex-col gap-4 py-2 h-[70vh] overflow-y-auto w-full px-4"
               >
                 <InputCard
                   name="breedName"
@@ -318,12 +319,12 @@ const BreedStandard = () => {
 
                 <div className="flex gap-2 items-end justify-end pt-4">
                   <div
-                    className="border border-primary rounded-md p-1 px-2 text-sm"
+                    className="border border-primary rounded-md p-1 px-2 text-base"
                     onClick={handleCancel}
                   >
                     <button>Cancel</button>
                   </div>
-                  <div className="rounded-md px-3 py-1 text-sm bg-primary text-white">
+                  <div className="rounded-md px-3 py-1 text-base bg-primary text-white">
                     <button type="submit">Save</button>
                   </div>
                 </div>

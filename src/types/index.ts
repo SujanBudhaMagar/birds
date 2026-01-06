@@ -15,8 +15,21 @@ export interface LogInProps {
   password: string;
 }
 
-export interface AdminSidebarProps {
+export interface UserRoleContextType {
+  role: string | null;
+  status: "loading" | "authenticated" | "unauthenticated";
+}
+
+export type Role = "admin" | "moderator" | "hatcherymember";
+
+export interface SidebarProps {
   icon: string;
+  title: string;
+  link: string;
+  allowedRoles: Role[];
+}
+export interface AccountProps {
+  icon: React.JSX.Element;
   title: string;
   link: string;
 }

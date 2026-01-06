@@ -67,7 +67,7 @@ const HatcheryMember = () => {
         {loadHatcheryMemberData.length > 0 ? (
           <table className="w-full table-fixed border-collapse">
             <thead>
-              <tr className="text-xs border-b border-b-secondary">
+              <tr className="table-row">
                 <th className="cell w-[17.5%]">Username</th>
                 <th className="cell w-[17.5%]">Full Name</th>
                 <th className="cell w-[25%]">Email</th>
@@ -77,13 +77,13 @@ const HatcheryMember = () => {
             </thead>
             <tbody>
               {loadHatcheryMemberData.map((hatchery) => (
-                <tr key={hatchery.userName} className="text-xs">
+                <tr key={hatchery.userName} className="table-data">
                   <td className="cell">{hatchery.userName}</td>
                   <td className="cell">{hatchery.fullName}</td>
                   <td className="cell">{hatchery.email}</td>
                   <td className="cell">
                     <span
-                      className={`px-2 py-1 text-white text-[8px] rounded-sm ${
+                      className={`px-2 py-1 text-white text-sm rounded-sm ${
                         hatchery.status === "active"
                           ? "bg-green-400 text-green-500"
                           : "bg-red-500"
@@ -93,7 +93,7 @@ const HatcheryMember = () => {
                     </span>
                   </td>
                   <td className="cell">
-                    <div className="flex items-center gap-1 text-secondary text-xs">
+                    <div className="flex items-center gap-1 text-secondary text-base">
                       <FaEdit
                         className="text-blue-500"
                         onClick={() => {

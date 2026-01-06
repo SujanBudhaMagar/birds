@@ -55,16 +55,16 @@ const UserModal: React.FC<
   return (
     <section className="fixed inset-0 bg-black/50 z-30">
       <div className="flex items-center justify-center h-screen ">
-        <div className="bg-white max-w-md w-full rounded-lg px-8 py-6 flex flex-col gap-2">
+        <div className="bg-white max-w-lg w-full rounded-lg px-8 py-6 flex flex-col gap-2">
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1 className="text-base font-bold">{title}</h1>
-              <h2 className="text-xs text-secondary">{des}</h2>
+              <h1 className="modal-title">{title}</h1>
+              <h2 className="modal-des">{des}</h2>
             </div>
             <MdClose onClick={closeForm} />
           </div>
           <hr className="h-px w-full" />
-          <form onSubmit={handleSubmit} className="flex flex-col gap-2 py-2">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-2">
             <InputCard
               name="userName"
               value={formData.userName}
@@ -105,12 +105,12 @@ const UserModal: React.FC<
             />
             <div className="flex gap-2 items-end justify-end pt-4">
               <div
-                className="border border-primary rounded-md p-1 px-2 text-sm"
+                className="border border-primary rounded-md p-1 px-2 text-base"
                 onClick={handleCancel}
               >
                 <button>Cancel</button>
               </div>
-              <div className="rounded-md px-3 py-1 text-sm bg-primary text-white">
+              <div className="rounded-md px-3 py-1 text-base bg-primary text-white">
                 <button type="submit">Save</button>
               </div>
             </div>

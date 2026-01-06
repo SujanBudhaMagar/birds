@@ -1,11 +1,8 @@
-"use client";
-import { signOut } from "next-auth/react";
-import Image from "next/image";
-import { CiLogout } from "react-icons/ci";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 const Header = () => {
   return (
-    <header className="globalContainer flex justify-between items-center h-16 w-full shadow-md z-10">
+    <header className="globalContainer flex justify-between items-center h-20 w-full shadow-md z-10">
       {/* <Image
         src=""
         alt="No Logo"
@@ -14,13 +11,12 @@ const Header = () => {
         className="h-10 w-10"
       /> */}
       <div className="h-10 w-10 test" />
-      <button
-        onClick={() => signOut()}
-        className="text-primary p-2 text-xs flex bg-[#EFEFEF] rounded-sm items-center justify-center gap-1"
-      >
-        <CiLogout />
-        <span>Logout</span>
-      </button>
+
+      <div className="flex gap-3 items-center">
+        <IoMdNotificationsOutline />
+        <div className="rounded-full h-6 w-6 border border-blue-300"></div>
+        <span className="text-base font-semibold">John Carter</span>
+      </div>
     </header>
   );
 };

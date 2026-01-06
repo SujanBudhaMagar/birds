@@ -4,14 +4,12 @@ import { FaChevronDown } from "react-icons/fa";
 const SelectCard = ({ title, options, onChange, name, value }: OptionProps) => {
   return (
     <div className="flex flex-col w-full space-y-1">
-      <label className="text-sm generalSansMedium-500 text-[#374151]">
-        {title}
-      </label>
+      <label className="text-base font-semibold text-primary">{title}</label>
       <div className="relative w-full">
         <select
           name={name}
           value={value}
-          className="text-primary appearance-none w-full bg-gray-200 rounded-md py-2 px-3 text-sm shadow-sm"
+          className="text-primary appearance-none w-full bg-gray-200 rounded-md py-3 px-4 text-sm shadow-sm select"
           onChange={onChange}
         >
           {options.map((opt, idx) => (
