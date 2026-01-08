@@ -67,8 +67,8 @@ const Sidebar = ({ role }: SidebarProps) => {
           <h2 className="sidebar-subheading">System Administrator</h2>
         </div>
       </div>
-      <section className="flex flex-col justify-between h-[90vh] px-3 py-4">
-        <div className="flex flex-col gap-1.5">
+      <section className="flex flex-col justify-between h-[85vh] px-3 py-3 gap-2">
+        <div className="flex flex-col gap-1">
           <h1 className="text-base font-semibold">Main Menu</h1>
           <hr className="h-px w-full" />
           {filteredSidebarData.map((side) => (
@@ -92,7 +92,7 @@ const Sidebar = ({ role }: SidebarProps) => {
         </div>
         {role === "admin" && (
           <>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               <h1 className="text-base font-semibold">Admin Tools</h1>
               <hr className="h-px w-full" />
               <ul>
@@ -112,10 +112,10 @@ const Sidebar = ({ role }: SidebarProps) => {
             </div>
           </>
         )}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
           <h1 className="font-semibold text-base">Accounts</h1>
           <hr className="h-px bg-secondary" />
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2">
             {Account.map((account) => (
               <Link
                 key={account.link}
@@ -134,7 +134,7 @@ const Sidebar = ({ role }: SidebarProps) => {
               clearRole();
               signOut({ callbackUrl: "/login" });
             }}
-            className="text-red-500 text-base flex rounded-sm items-center justify-center gap-1"
+            className="text-red-700 text-base flex rounded-sm items-center justify-center gap-2"
           >
             <CiLogout />
             <span>Logout</span>

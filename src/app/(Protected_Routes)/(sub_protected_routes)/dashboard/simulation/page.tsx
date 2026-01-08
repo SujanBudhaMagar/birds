@@ -10,32 +10,35 @@ const Simulation = () => {
     breed: "",
     startDate: "",
     endDate: "",
+    fertilityRate: "",
+    mortalityRate: "",
+    hatchabilityRate: "",
+    healthyChickensRate: "",
   });
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    console.log(value, "target");
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
-    <div className="globalContainer flex flex-col gap-6">
-      <section className="flex items-center gap-2 bg-white border border-border rounded-md w-full px-4 py-2 text-base font-semibold">
+    <main className="globalContainer flex flex-col gap-2">
+      <div className="flex items-center gap-2 bg-white border border-border rounded-md w-full px-4 py-2 text-sm text-primary tracking-wide">
         <CiWarning />
         <p>
           Simulation changes are temporary and for analysis only. They are not
           saved to the database.
         </p>
-      </section>
-      <section className="bg-white flex flex-col gap-3 border border-border rounded-md px-6 py-4">
-        <h1 className="text-lg font-medium">Simulation Tool</h1>
-        <p className="text-[#0000004D] text-base">
+      </div>
+      <section className="bg-white flex flex-col gap-1 border border-border rounded-md px-4 py-2">
+        <h1 className="text-lg font-semibold">Simulation Tool</h1>
+        <p className="text-secondary text-sm">
           Adjust parameters to simulate different scenarios (e.g., disease
           outbreak, improved management)
         </p>
-        <div className="flex gap-3">
+        <div className="flex gap-3 py-1">
           <SelectCard
             name="breed"
             value={formData.breed}
@@ -60,49 +63,57 @@ const Simulation = () => {
             placeholder=""
           />
         </div>
-        <hr className="h-px mt-2" />
+        <hr className="h-px mt-3" />
 
-        <div>
-          <h2>Adjust Parameter</h2>
-          <div>
+        <div className="pt-2 flex flex-col gap-4">
+          <div className="flex justify-between">
+            <h2 className="text-base tracking-wide font-semibold">
+              Adjust Parameter
+            </h2>
+            <button className="border border-border text-xs p-1 rounded-md">
+              Restore defaults
+            </button>
+          </div>
+          <div className="flex gap-4">
             <InputCard
-              name="startDate"
-              title="Start Date"
-              type="date"
+              name="mortalityRate"
+              title="Mortality Rate (%)"
+              type="number"
               onChange={handleInputChange}
-              value={formData.startDate}
-              placeholder=""
+              value={formData.mortalityRate}
+              placeholder="Enter a number"
             />
             <InputCard
-              name="endDate"
-              title="End Date"
-              type="date"
+              name="fertilityRate"
+              title="Fertility Rate"
+              type="number"
               onChange={handleInputChange}
-              value={formData.endDate}
-              placeholder=""
+              value={formData.fertilityRate}
+              placeholder="Enter a number"
             />
           </div>
-          <div>
+          <div className="flex gap-4">
             <InputCard
-              name="startDate"
-              title="Start Date"
-              type="date"
+              name="hatchabilityRate"
+              title="Hatchability Rate (%)"
+              type="number"
               onChange={handleInputChange}
-              value={formData.startDate}
-              placeholder=""
+              value={formData.hatchabilityRate}
+              placeholder="Enter a number"
             />
             <InputCard
-              name="endDate"
-              title="End Date"
-              type="date"
+              name="healthyChickensRate"
+              title="Healthy Chicken Rate (%)"
+              type="number"
               onChange={handleInputChange}
-              value={formData.endDate}
-              placeholder=""
+              value={formData.healthyChickensRate}
+              placeholder="Enter a number"
             />
           </div>
         </div>
+        <div>{}</div>
       </section>
-    </div>
+    </main>
   );
 };
 

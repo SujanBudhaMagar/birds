@@ -113,3 +113,28 @@ export const dummyUsers: UserPropsType[] = [
     status: "active",
   },
 ];
+
+export const predictionData = [
+  {
+    title: "Baseline Prediction",
+    subtitle: "Using standard breed parameters",
+    stats: [
+      { label: "Fertile Eggs", value: 40000 },
+      { label: "Hatchable Count", value: 36250 },
+      { label: "Healthy Chicks", value: 32000 },
+      { label: "Mortality Count", value: 2100 },
+      { label: "Healthy Adults", value: 30500 },
+    ],
+  },
+  {
+    title: "Simulated Prediction",
+    subtitle: "Using adjusted parameters",
+    stats: [
+      { label: "Fertile Eggs", value: 37250, diff: -4.7 },
+      { label: "Hatchable Count", value: 33000, diff: -8.6 },
+      { label: "Healthy Chicks", value: 31680, diff: -6.7 },
+      { label: "Mortality Count", value: 5200, diff: 4.7 },
+      { label: "Healthy Adults", value: 28000, diff: 2.2 },
+    ],
+  },
+];

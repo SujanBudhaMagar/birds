@@ -47,13 +47,15 @@ const Charts = () => {
     }));
   };
   return (
-    <main className="globalContainer flex flex-col gap-6">
-      <header className="flex flex-col gap-1 border border-border px-4 py-2 rounded-md ">
-        <h1 className="modal-title">Data Visualization</h1>
-        <p className="modal-des">
+    <main className="globalContainer flex flex-col gap-5">
+      <header className="flex flex-col gap-1  rounded-md ">
+        <h1 className="modal-title font-semibold text-lg tracking-wide">
+          Data Visualization
+        </h1>
+        <p className="modal-des text-sm -mt-2">
           Interactive charts showing production trends and distributions
         </p>
-        <div className="flex gap-4">
+        <div className="flex gap-4 py-2">
           <SelectCard
             name="filterByBreed"
             title="Filter By Breed"
@@ -85,9 +87,11 @@ const Charts = () => {
             options={Status}
           />
         </div>
-        <span className="text-primary text-sm">Showing 7 out of 7 records</span>
+        <span className="text-xs tracking-wide text-secondary">
+          Showing 7 out of 7 records
+        </span>
       </header>
-      <section className="border border-border rounded-md px-4 py-2 w-[100%] h-110 focus:outline-none flex flex-col gap-8">
+      <section className="border border-border rounded-md px-4 py-2 w-full h-110 focus:outline-none flex flex-col gap-8">
         <div className="px-4">
           <h1 className="text-lg font-bold">Intake Over Time</h1>
           <span className="text-sm text-secondary">

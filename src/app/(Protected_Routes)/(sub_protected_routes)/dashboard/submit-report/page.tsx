@@ -29,15 +29,15 @@ const SubmitReport = () => {
   };
   return (
     <div className="globalContainer">
-      <section className="flex flex-col gap-4 bg-white border border-border rounded-md w-full px-4 py-6">
-        <div className="flex gap-3 items-center font-bold text-xl">
+      <section className="flex flex-col gap-3 bg-white border border-border rounded-md w-full px-4 py-3">
+        <div className="flex gap-1 items-center font-semibold text-xl tracking-wide">
           <RiErrorWarningLine />
           <h1>Submit Report or Complaint</h1>
         </div>
-        <p className="text-[#0000004D] text-base">
+        <p className="text-secondary text-base">
           Report issues, submit complaints or request new features
         </p>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <SelectCard
             name="type"
             title="Type"

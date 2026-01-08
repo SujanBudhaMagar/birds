@@ -17,7 +17,7 @@ const Moderator = () => {
     useState<UserPropsType | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const items_per_page = 5;
+  const items_per_page = 6;
 
   const totalItems = loadModeratorData.length;
   const startIndex = (currentPage - 1) * items_per_page;
