@@ -6,7 +6,7 @@ const BreedStandards = () => {
   const role = useAuthStore((s) => s.role);
 
   return (
-    <section className="globalContainer">
+    <section className="globalContainer1">
       {(role === "admin" || role === "moderator") && (
         <>
           <BreedStandard />

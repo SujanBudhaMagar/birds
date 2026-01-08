@@ -2,7 +2,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 const Header = () => {
   return (
-    <header className="globalContainer flex justify-between items-center h-20 w-full shadow-md z-10">
+    <header className="flex justify-between items-center h-20 w-full shadow-md z-10 px-6">
       {/* <Image
         src=""
         alt="No Logo"

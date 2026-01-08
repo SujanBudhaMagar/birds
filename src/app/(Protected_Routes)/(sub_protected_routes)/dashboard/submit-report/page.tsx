@@ -28,7 +28,7 @@ const SubmitReport = () => {
     }));
   };
   return (
-    <div className="globalContainer">
+    <div className="globalContainer1">
       <section className="flex flex-col gap-3 bg-white border border-border rounded-md w-full px-4 py-3">
         <div className="flex gap-1 items-center font-semibold text-xl tracking-wide">
           <RiErrorWarningLine />

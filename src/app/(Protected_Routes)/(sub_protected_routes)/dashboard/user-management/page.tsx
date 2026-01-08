@@ -11,7 +11,7 @@ const UserManagement = () => {
   );
 
   return (
-    <section className="globalContainer">
+    <section className="globalContainer1">
       {role === "admin" && (
         <>
           <div className="flex gap-2 pb-4">

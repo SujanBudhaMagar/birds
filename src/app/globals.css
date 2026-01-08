@@ -7,6 +7,9 @@
   .globalContainer {
     @apply max-w-340 mx-auto px-5 md:px-8 lg:px-8 py-4;
   }
+  .globalContainer1{
+    @apply px-5 py-6
+  }
   .sidebar-header {
     @apply text-lg font-medium text-primary;
   }

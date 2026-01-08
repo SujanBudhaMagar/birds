@@ -47,7 +47,7 @@ const Charts = () => {
     }));
   };
   return (
-    <main className="globalContainer flex flex-col gap-5">
+    <main className="globalContainer1 flex flex-col gap-5">
       <header className="flex flex-col gap-1  rounded-md ">
         <h1 className="modal-title font-semibold text-lg tracking-wide">
           Data Visualization

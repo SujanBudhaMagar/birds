@@ -24,7 +24,7 @@ const Simulation = () => {
   };
 
   return (
-    <main className="globalContainer flex flex-col gap-2">
+    <main className="globalContainer1 flex flex-col gap-2">
       <div className="flex items-center gap-2 bg-white border border-border rounded-md w-full px-4 py-2 text-sm text-primary tracking-wide">
         <CiWarning />
         <p>

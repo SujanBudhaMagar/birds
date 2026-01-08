@@ -3,7 +3,7 @@ import React from "react";
 
 const Hatcheries = () => {
   return (
-    <section className="globalContainer">
+    <section className="globalContainer1">
       <AllHatcheries />
     </section>
   );
