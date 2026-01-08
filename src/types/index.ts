@@ -39,14 +39,42 @@ export interface HeaderProps {
   des: string;
   button: string;
   onClick: () => void;
+  onClick1?: () => void;
+  button2?: string;
 }
 
-export interface UserProps {
+export interface FlockPropsType {
+  noOfMaleChicks: string;
+  noOfFemaleChicks: string;
+  breed: string;
+  purposeOfSelection: string;
+  source: string;
+  dateOfPlacement: string;
+  dateOfBirth: string;
+  dateOfShipment: string;
+}
+
+export interface FlockModalProps {
+  closeForm: () => void;
+  onSubmit: (data: FlockPropsType) => void;
+}
+
+export interface UserPropsType {
   userId: string;
   userName: string;
   fullName: string;
   email: string;
   status: string;
+}
+
+export interface UserDataProps {
+  data: UserPropsType[];
+  metadata: {
+    currentLimit: number;
+    currentPage: number;
+    totalItems: number;
+    totalPages: number;
+  };
 }
 
 export interface InputField {
@@ -74,7 +102,24 @@ export interface OptionValues {
 
 export interface UserModalProps {
   closeForm: () => void;
-  onSubmit: (data: UserProps) => void;
+  onSubmit: (data: UserPropsType) => void;
+  title: string;
+  des: string;
+}
+
+export interface HatcheryPropsType {
+  hatcheryId: string;
+  registeredNumber: string;
+  name: string;
+  address: string;
+  owner: string;
+  contact: string;
+  status: string;
+  yearEstd: string;
+}
+export interface HatcheryModalProps {
+  closeForm: () => void;
+  onSubmit: (data: HatcheryPropsType) => void;
   title: string;
   des: string;
 }

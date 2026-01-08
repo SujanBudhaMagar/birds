@@ -1,9 +1,8 @@
 "use client";
-import { useUserRole } from "@/context/userContext";
-import React from "react";
+import { useAuthStore } from "@/store/authstore";
 
 const FlockDetails = () => {
-  const { role, status } = useUserRole();
+  const role = useAuthStore((s) => s.role);
   return <div></div>;
 };
 

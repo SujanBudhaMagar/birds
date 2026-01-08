@@ -14,7 +14,7 @@ const UserManagement = () => {
     <section className="globalContainer">
       {role === "admin" && (
         <>
-          <div className="flex gap-2 pb-6">
+          <div className="flex gap-2 pb-4">
             {["Moderator", "Hatchery Member"].map((user) => (
               <button
                 key={user}
@@ -33,7 +33,7 @@ const UserManagement = () => {
       )}
       {role === "moderator" && (
         <>
-          <button className="bg-gray-200 shadow-sm rounded-lg p-2 text-base">
+          <button className="bg-gray-200 shadow-sm rounded-lg p-2 text-base test mb-4">
             Hatchery Member
           </button>
           <HatcheryMember />

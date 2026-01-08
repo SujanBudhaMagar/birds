@@ -6,6 +6,7 @@ import NoDataCard from "../common/NoData";
 import { FaEdit } from "react-icons/fa";
 import { MdClose, MdDelete } from "react-icons/md";
 import InputCard from "../common/InputField";
+import Pagination from "../common/Pagination";
 
 const BreedStandard = () => {
   const [addBreed, setAddBreed] = useState(false);
@@ -25,6 +26,13 @@ const BreedStandard = () => {
   });
   const [editingBreed, setEditingBreed] = useState<BreedProps | null>(null);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const items_per_page = 5;
+  const totalItems = loadBreed.length;
+  const startIndex = (currentPage - 1) * items_per_page;
+  const endIndex = startIndex + items_per_page;
+  const paginatedBreeds = loadBreed.slice(startIndex, endIndex);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -129,12 +137,8 @@ const BreedStandard = () => {
     setLoadBreed((prev) => prev.filter((breed) => breed.breedID !== id));
   };
 
-  useEffect(() => {
-    console.log("Loading", loadBreed);
-  }, [loadBreed]);
-
   return (
-    <section className="rounded-lg py-6 bg-white shadow-md border-px border-primary px-4 mt-6">
+    <section className="rounded-lg py-6 bg-white shadow-md border border-border px-4">
       <div className="flex flex-col gap-8">
         <Header
           title="Breed Standard Management"
@@ -158,7 +162,7 @@ const BreedStandard = () => {
             });
           }}
         />
-        {loadBreed.length > 0 ? (
+        {paginatedBreeds.length > 0 ? (
           <table className="w-full table-fixed border-collapse">
             <thead>
               <tr className="table-row">
@@ -171,7 +175,7 @@ const BreedStandard = () => {
               </tr>
             </thead>
             <tbody>
-              {loadBreed.map((breed) => (
+              {paginatedBreeds.map((breed) => (
                 <tr key={breed.breedID} className="table-data">
                   <td className="cell capitalize">{breed.breedName}</td>
                   <td className="cell">{breed.fertility}</td>
@@ -333,6 +337,12 @@ const BreedStandard = () => {
           </div>
         </section>
       )}
+      <Pagination
+        currentPage={currentPage}
+        totalItems={totalItems}
+        itemsPerPage={items_per_page}
+        onPageChange={setCurrentPage}
+      />
     </section>
   );
 };

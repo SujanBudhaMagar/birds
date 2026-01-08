@@ -20,10 +20,10 @@
     @apply text-left px-4 py-4;
   }
   .modal-title {
-    @apply text-xl font-bold;
+    @apply text-xl font-bold tracking-wide;
   }
   .modal-des {
-    @apply text-base text-secondary;
+    @apply text-base text-secondary tracking-wide;
   }
   .table-row {
     @apply text-base border-b border-b-secondary;
@@ -36,6 +36,7 @@
 @theme inline {
   --color-primary: #000000;
   --color-secondary: #6b7280;
+  --color-border: #00000021;
 }
 
 .test {
@@ -53,19 +54,18 @@ input:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out;
 }
 
-select {
+/* select {
   background-color: white;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
+} */
 
-select:focus {
+/* select:focus {
   background-color: white;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   outline: none;
-}
-
+} */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

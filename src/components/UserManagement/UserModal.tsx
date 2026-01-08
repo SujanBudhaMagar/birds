@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import InputCard from "../common/InputField";
 import { MdClose } from "react-icons/md";
-import { UserModalProps, UserProps } from "@/types";
+import { UserModalProps, UserPropsType } from "@/types";
 import { Status } from "@/constants";
 import SelectCard from "../common/SelectCard";
 
 const UserModal: React.FC<
-  UserModalProps & { initialData?: UserProps | null }
+  UserModalProps & { initialData?: UserPropsType | null }
 > = ({ closeForm, onSubmit, title, des, initialData = null }) => {
   const [formData, setFormData] = useState({
     userId: initialData?.userId || "",
@@ -21,11 +21,11 @@ const UserModal: React.FC<
     onSubmit(formData);
     closeForm();
     setFormData({
-      userId: "",
-      userName: "",
-      fullName: "",
-      email: "",
-      status: "active",
+      userId: initialData?.userId || "",
+      userName: initialData?.userName || "",
+      fullName: initialData?.fullName || "",
+      email: initialData?.email || "",
+      status: initialData?.status || "active",
     });
   };
 
@@ -44,7 +44,6 @@ const UserModal: React.FC<
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    console.log(value, "this is test");
 
     setFormData((prev) => ({
       ...prev,
@@ -55,7 +54,7 @@ const UserModal: React.FC<
   return (
     <section className="fixed inset-0 bg-black/50 z-30">
       <div className="flex items-center justify-center h-screen ">
-        <div className="bg-white max-w-lg w-full rounded-lg px-8 py-6 flex flex-col gap-2">
+        <div className="bg-white max-w-lg w-full rounded-lg px-8 py-6 flex flex-col gap-2 border border-border">
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
               <h1 className="modal-title">{title}</h1>
