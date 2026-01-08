@@ -28,7 +28,7 @@ export default async function ProtectedLayout({
         <div className="flex-1 flex flex-col overflow-hidden">
           <Header />
           {/* Scrollable content */}
-          <main className="flex-1 overflow-auto py-6">{children}</main>
+          <main className="flex-1 overflow-auto py-3">{children}</main>
         </div>
       </div>
     </>

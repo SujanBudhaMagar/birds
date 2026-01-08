@@ -20,7 +20,7 @@ export const authOptions: NextAuthOptions = {
           id: "1",
           fullname: "Demo User",
           email: "admin@example.com",
-          role: "admin",
+          role: "hatcherymember",
           tokens: {
             accessToken: "mock-access-token",
             refreshToken: "mock-refresh-token",

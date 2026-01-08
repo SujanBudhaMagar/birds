@@ -1,7 +1,12 @@
+import AllHatcheries from "@/components/AllHatcheries/AllHatcheries";
 import React from "react";
 
-const AllHatcheries = () => {
-  return <div></div>;
+const Hatcheries = () => {
+  return (
+    <section className="globalContainer">
+      <AllHatcheries />
+    </section>
+  );
 };
 
-export default AllHatcheries;
+export default Hatcheries;

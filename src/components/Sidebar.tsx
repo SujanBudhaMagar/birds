@@ -5,7 +5,8 @@ import { AccountProps, Role } from "@/types";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { CiLogout, CiUser } from "react-icons/ci";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { IoNotificationsOutline } from "react-icons/io5";
@@ -16,7 +17,7 @@ interface SidebarProps {
   role?: string;
 }
 const Sidebar = ({ role }: SidebarProps) => {
-  const [selected, setSelected] = useState<string>("/dashboard/overview");
+  const pathName = usePathname();
   const Account: AccountProps[] = [
     { title: "My Profile", link: "/dashboard/my-profile", icon: <CiUser /> },
     {
@@ -48,8 +49,14 @@ const Sidebar = ({ role }: SidebarProps) => {
   );
   const clearRole = useAuthStore((s) => s.clearRole);
 
+  useEffect(() => {
+    if (!pathName) {
+      window.location.href = "/dashboard/overview";
+    }
+  }, [pathName]);
+
   return (
-    <aside className="w-64 border-r border-gray-200 shadow-md h-full">
+    <aside className="w-[20%] border-r border-gray-200 shadow-md h-full">
       <div className="bg-white border-primary shadow-md px-6 py-4">
         <div className="flex flex-col justify-center items-center">
           <div className="flex gap-2">
@@ -69,9 +76,8 @@ const Sidebar = ({ role }: SidebarProps) => {
               href={side.link}
               key={side.link}
               className={`${
-                selected === side.link ? "bg-[#D9D9D959]" : ""
+                pathName === side.link ? "bg-[#D9D9D959]" : ""
               } sidebar-link`}
-              onClick={() => setSelected(side.link)}
             >
               <Image
                 src={side.icon}
@@ -95,9 +101,8 @@ const Sidebar = ({ role }: SidebarProps) => {
                     key={tools.link}
                     href={tools.link}
                     className={`${
-                      selected === tools.link ? "bg-[#D9D9D959]" : ""
+                      pathName === tools.link ? "bg-[#D9D9D959]" : ""
                     } sidebar-link`}
-                    onClick={() => setSelected(tools.link)}
                   >
                     {tools.icon}
                     {tools.title}
@@ -116,9 +121,8 @@ const Sidebar = ({ role }: SidebarProps) => {
                 key={account.link}
                 href={account.link}
                 className={`sidebar-link ${
-                  selected === account.link ? "bg-[#D9D9D959]" : ""
+                  pathName === account.link ? "bg-[#D9D9D959]" : ""
                 }`}
-                onClick={() => setSelected(account.link)}
               >
                 {account.icon}
                 {account.title}
@@ -130,7 +134,7 @@ const Sidebar = ({ role }: SidebarProps) => {
               clearRole();
               signOut({ callbackUrl: "/login" });
             }}
-            className="text-red-500 bg-red-100 p-2 text-base flex rounded-sm items-center justify-center gap-1"
+            className="text-red-500 text-base flex rounded-sm items-center justify-center gap-1"
           >
             <CiLogout />
             <span>Logout</span>

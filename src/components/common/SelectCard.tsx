@@ -9,7 +9,7 @@ const SelectCard = ({ title, options, onChange, name, value }: OptionProps) => {
         <select
           name={name}
           value={value}
-          className="text-primary appearance-none w-full bg-gray-200 rounded-md py-3 px-4 text-sm shadow-sm select"
+          className="text-primary appearance-none w-full bg-gray-200 rounded-md py-2 px-3 text-base shadow-sm select border border-border"
           onChange={onChange}
         >
           {options.map((opt, idx) => (
@@ -18,7 +18,7 @@ const SelectCard = ({ title, options, onChange, name, value }: OptionProps) => {
             </option>
           ))}
         </select>
-        <FaChevronDown className="text-md absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+        <FaChevronDown className="text-base absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const InputCard = ({
         value={value}
         type={type}
         placeholder={placeholder}
-        className="bg-white text-primary rounded-md py-3 px-4 text-base shadow-lg"
+        className="bg-white text-primary rounded-md py-2 px-3 text-base shadow-lg border border-border"
       />
     </div>
   );
